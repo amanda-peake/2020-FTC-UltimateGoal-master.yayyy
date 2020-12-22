@@ -3,13 +3,11 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-import org.firstinspires.ftc.teamcode.HardwareMap.HardwareUltimateGoal;
-
 @TeleOp (name = "TeleopUltimateGoal")
 
 public class TeleopUltimateGoal extends LinearOpMode {
 
-    HardwareUltimateGoal Robot = new HardwareUltimateGoal();
+    HardwareUltimateGoal Gerty = new HardwareUltimateGoal();
 
     @Override
     public void runOpMode() throws InterruptedException {
@@ -19,7 +17,7 @@ public class TeleopUltimateGoal extends LinearOpMode {
         telemetry.update();
 
         System.out.println("Initialize Robot");
-        Robot.InitializeRobot(hardwareMap);
+        Gerty.InitializeRobot(hardwareMap);
         System.out.println("Robot Initialized");
 
         telemetry.addData("Status", "Ready!");
@@ -36,23 +34,23 @@ public class TeleopUltimateGoal extends LinearOpMode {
 
             if (gamepad1.start) {
 
-                Robot.leftFront.setPower((fwdBack + 1.5*strafe - turn) * .25);
-                Robot.leftBack.setPower((fwdBack - 1.5*strafe - turn) * .25);
-                Robot.rightFront.setPower((-fwdBack + 1.5*strafe - turn) * .25);
-                Robot.rightBack.setPower((-fwdBack - 1.5*strafe - turn) * .25);
+                Gerty.leftFront.setPower((fwdBack + 1.5*strafe - turn) * .25);
+                Gerty.leftBack.setPower((fwdBack - 1.5*strafe - turn) * .25);
+                Gerty.rightFront.setPower((-fwdBack + 1.5*strafe - turn) * .25);
+                Gerty.rightBack.setPower((-fwdBack - 1.5*strafe - turn) * .25);
 
             } else { // drive robot normally at full speed
 
-                Robot.leftFront.setPower((fwdBack + strafe - turn));
-                Robot.leftBack.setPower((fwdBack - strafe - turn));
-                Robot.rightFront.setPower((-fwdBack + strafe - turn));
-                Robot.rightBack.setPower((-fwdBack - strafe - turn));
+                Gerty.leftFront.setPower((fwdBack + strafe - turn));
+                Gerty.leftBack.setPower((fwdBack - strafe - turn));
+                Gerty.rightFront.setPower((-fwdBack + strafe - turn));
+                Gerty.rightBack.setPower((-fwdBack - strafe - turn));
 
             }
 
             }
 
-        if (gamepad2.right_bumper) {
+       /* if (gamepad2.right_bumper) {
             Robot.Outake(1);
         }
         else {
@@ -65,6 +63,8 @@ public class TeleopUltimateGoal extends LinearOpMode {
         else {
             Robot.Outake(0);
         }
+        */
+
         }
 
 
