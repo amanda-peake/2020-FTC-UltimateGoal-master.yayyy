@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.DcMotor;
 
 @TeleOp (name = "TeleopUltimateGoal")
 
@@ -22,6 +23,7 @@ public class TeleopUltimateGoal extends LinearOpMode {
 
         telemetry.addData("Status", "Ready!");
 
+
         telemetry.update();
 
         waitForStart();
@@ -32,12 +34,16 @@ public class TeleopUltimateGoal extends LinearOpMode {
             double strafe = gamepad1.left_stick_x;
             double turn = gamepad1.right_stick_x;
 
-            if (gamepad1.start) {
+            telemetry.addData("Ramp encoder", Gerty.leadscrew.getCurrentPosition());
 
-                Gerty.leftFront.setPower((fwdBack + 1.5*strafe - turn) * .25);
-                Gerty.leftBack.setPower((fwdBack - 1.5*strafe - turn) * .25);
-                Gerty.rightFront.setPower((-fwdBack + 1.5*strafe - turn) * .25);
-                Gerty.rightBack.setPower((-fwdBack - 1.5*strafe - turn) * .25);
+            telemetry.update();
+
+
+            if (gamepad1.start) {
+                Gerty.leftFront.setPower((fwdBack + 1.5 * strafe - turn) * .25);
+                Gerty.leftBack.setPower((fwdBack - 1.5 * strafe - turn) * .25);
+                Gerty.rightFront.setPower((-fwdBack + 1.5 * strafe - turn) * .25);
+                Gerty.rightBack.setPower((-fwdBack - 1.5 * strafe - turn) * .25);
 
             } else { // drive robot normally at full speed
 
@@ -48,27 +54,34 @@ public class TeleopUltimateGoal extends LinearOpMode {
 
             }
 
+            if (gamepad2.a) {
+                Gerty.leadscrew.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+                Gerty.leadscrew.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+                Gerty.leadscrew.setTargetPosition(100);
+                Gerty.leadscrew.setPower(1);
+            } else if (gamepad2.b) {
+                Gerty.leadscrew.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+                Gerty.leadscrew.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+                Gerty.leadscrew.setTargetPosition(200);
+                Gerty.leadscrew.setPower(1);
+            } else if (gamepad2.y) {
+                Gerty.leadscrew.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+                Gerty.leadscrew.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+                Gerty.leadscrew.setTargetPosition(-100);
+                Gerty.leadscrew.setPower(1);
             }
 
-       /* if (gamepad2.right_bumper) {
-            Robot.Outake(1);
-        }
-        else {
-            Robot.Outake(0);
-        }
+            Gerty.Outake(gamepad2.right_trigger);
 
-        if (gamepad2.left_bumper) {
-            Robot.Outake(-1);
-        }
-        else {
-            Robot.Outake(0);
-        }
-        */
+            Gerty.Intake(gamepad2.left_trigger);
+
 
         }
 
 
     }
+}
+
 
 
 
