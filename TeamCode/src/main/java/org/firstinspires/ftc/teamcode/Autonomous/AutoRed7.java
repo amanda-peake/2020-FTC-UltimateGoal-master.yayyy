@@ -29,7 +29,7 @@ public class AutoRed7 extends LinearOpMode {
         Thread.sleep(1000);
 
         //strafe right
-        Gerty.DriveSideways(.5,1000,1,1,1,1);
+        Gerty.DriveSideways(.5,1000,1);
         Thread.sleep(1000);
 
         Gerty.DriveStraight(1,5000,1);

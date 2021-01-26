@@ -7,6 +7,8 @@ import org.firstinspires.ftc.teamcode.HardwareUltimateGoal;
 
 @Autonomous (name = "AutoRed2")
 //delivering left wobble goal to closest square
+
+//TESTED AND IT WORKS
 public class AutoRed2 extends LinearOpMode {
     HardwareUltimateGoal Gerty = new HardwareUltimateGoal();
 
@@ -29,13 +31,23 @@ public class AutoRed2 extends LinearOpMode {
 
         //strafe right just a little bit
 
-        Gerty.DriveSideways(.5,1000,1,1,1,1);
+        Gerty.DriveStraight(.5,800,1);
+        Thread.sleep(5000);
+
+        Gerty.DriveTurn(.5,500,-1);
         Thread.sleep(1000);
 
         //drive straight and stop on line
 
-        Gerty.DriveStraight(1,5000,1);
+        Gerty.DriveStraight(.5,1000,1);
         Thread.sleep(5000);
+
+        Gerty.DriveTurn(.5,700,1);
+        Thread.sleep(1000);
+
+        Gerty.DriveStraight(.5,990,1);
+        Thread.sleep(5000);
+
 
 
     }

@@ -6,6 +6,8 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import org.firstinspires.ftc.teamcode.HardwareUltimateGoal;
 //right wobble second square
 
+//slightly works sometimes loses wobble
+
 @Autonomous (name = "AutoRed4")
 public class AutoRed4 extends LinearOpMode {
     HardwareUltimateGoal Gerty = new HardwareUltimateGoal();
@@ -27,17 +29,23 @@ public class AutoRed4 extends LinearOpMode {
 
         waitForStart();
 
-        Gerty.DriveStraight(1,3500,1);
+        Gerty.DriveStraight(.5,2000,1);
         Thread.sleep(1000);
 
 //strafe left
-        Gerty.DriveSideways(.5,3000,1,1,1,1);
+        Gerty.DriveTurn(.5,900,-1);
         Thread.sleep(3000);
 
-        Gerty.DriveStraight(.5,3000,1);
+        Gerty.DriveStraight(.5,800,1);
         Thread.sleep(1000);
 
-        Gerty.DriveStraight(.5,1000,-1);
+        Gerty.DriveTurn(.5,800,1);
+        Thread.sleep(3000);
+
+        Gerty.DriveStraight(.5,900,1);
+        Thread.sleep(1000);
+
+        Gerty.DriveStraight(.5,800,-1);
         Thread.sleep(1000);
     }
 }
