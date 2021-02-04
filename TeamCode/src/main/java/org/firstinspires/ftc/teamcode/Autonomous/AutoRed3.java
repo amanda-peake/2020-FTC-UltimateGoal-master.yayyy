@@ -3,7 +3,7 @@ package org.firstinspires.ftc.teamcode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
-import org.firstinspires.ftc.teamcode.HardwareUltimateGoal;
+import org.firstinspires.ftc.teamcode.HardwareMap.HardwareUltimateGoal;
 
 //closest square with right wobble
 //TESTED AND WORKS!
