@@ -12,14 +12,17 @@ public class HardwareUltimateGoal {
     public DcMotor rightFront;
     public DcMotor rightBack;
 
+
+
     //outtake slingshot thingy
-   // public DcMotor leftoutake;
-  //  public DcMotor rightoutake;
+   public DcMotor outake1;
+  //public DcMotor outake2;
 
     //leadscrew motor
 
     public DcMotor leadscrew;
 
+    //intake pool noodle
     public CRServo intakeL;
     public CRServo intakeR;
 
@@ -46,6 +49,10 @@ public class HardwareUltimateGoal {
 
         intakeL = HWMap.crservo.get("intakeL");
         intakeR = HWMap.crservo.get("intakeR");
+
+        outake1 = HWMap.dcMotor.get("outake1") ;
+     //   outake2 = HWMap.dcMotor.get("outake2");
+
 
     }
 
@@ -104,40 +111,64 @@ public class HardwareUltimateGoal {
 
 //-----------------------------------------Outake/Intake------------------------------
 
-   /* public void Outake(double power) {
-      leftoutake.setPower(power);
-     rightoutake.setPower(power);
-    }
-*/
-  /*  public void Intake(double power) {
-        intake.setPower(power);
-    }
-*/
+
+
+   public void Intake (double power) {
+       intakeL.setPower(power);
+       intakeR.setPower(-power);
+   }
+
+   public void Slingshot (double power) {
+        outake1.setPower(power);
+       // outake2.setPower(power);
+   }
+
+
+
 
 // ----------------------------------------LeadScrew--------------------------
 
+/*public void Ramp (double power, int encoderTarget) {
+    leadscrew.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-    public void Leadscrew (double power, int encoder, int Direction) {
-        leadscrew.setPower(power*Direction);
+    leadscrew.setTargetPosition(encoderTarget);
 
-        leadscrew.setTargetPosition(encoder*Direction);
+    leadscrew.setPower(power);
 
+    leadscrew.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
-        while (leadscrew.isBusy()) {
-            leadscrew.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+    leadscrew.setPower(0);
 
-        }
+ */
+
+    public void Ramp (double power, long totalSeconds) throws InterruptedException {
+        leadscrew.setPower(power);
+
+        Thread.sleep(totalSeconds);
+
         leadscrew.setPower(0);
-
-
-
-    }
-
-    public void Intake (double power) {
-        intakeL.setPower(power);
-        intakeR.setPower(-power);
     }
 }
+ /*  public void Leadscrew (double power, int encoder, int Direction) {
+
+        leadscrew.setTargetPosition(encoder * Direction);
+
+        leadscrew.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+
+        leadscrew.setPower(power);
+
+        while (leadscrew.isBusy()) ;
+
+    }
+    */
+
+
+
+
+
+
+
+
 
 
 
