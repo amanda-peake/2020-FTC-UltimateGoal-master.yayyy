@@ -61,33 +61,44 @@ public class TeleopUltimateGoal extends LinearOpMode {
 
             }
 
-            if (gamepad1.a) {
+            if (gamepad2.a) {
                 Gerty.Ramp(1,1000);
                 Thread.sleep(1000);
             }
-            else if (gamepad1.b) {
+            else if (gamepad2.b) {
                 Gerty.Ramp(1,3000);
+                Thread.sleep(2000);
+            }
+            else if (gamepad2.y) {
+                Gerty.Ramp(1, 4000);
                 Thread.sleep(2000);
             }
 
 
-            if (gamepad1.dpad_up) {
+            if (gamepad2.dpad_up) {
                 Gerty.leadscrew.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
                 Gerty.leadscrew.setPower(.9);
-            } else if (gamepad1.dpad_down) {
+            } else if (gamepad2.dpad_down) {
                 Gerty.leadscrew.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
                 Gerty.leadscrew.setPower(-.9);
             } else {
                 Gerty.leadscrew.setPower(0);
             }
 
+            Gerty.Intake(gamepad1.left_trigger);
 
+            //Outake System//
 
-
-            Gerty.Intake(gamepad2.left_trigger);
-
-            //Gerty.Slingshot(gamepad2.right_trigger);
             Gerty.outake1.setPower(gamepad2.right_trigger);
+
+            Gerty.outake2.setPower(gamepad2.left_stick_y);
+
+            if (gamepad2.left_bumper) {
+                Gerty.outake2.setPower(1);
+            }
+            else {
+                Gerty.outake2.setPower(0);
+            }
 
 
 

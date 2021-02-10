@@ -16,7 +16,7 @@ public class HardwareUltimateGoal {
 
     //outtake slingshot thingy
    public DcMotor outake1;
-  //public DcMotor outake2;
+   public DcMotor outake2;
 
     //leadscrew motor
 
@@ -42,16 +42,15 @@ public class HardwareUltimateGoal {
         rightFront = HWMap.dcMotor.get("rightFront");
         rightBack = HWMap.dcMotor.get("rightBack");
 
-       // leftoutake = HWMap.dcMotor.get("leftoutake");
-        //rightoutake = HWMap.dcMotor.get("rightoutake");
+       outake1 = HWMap.dcMotor.get("outake1");
+        outake2 = HWMap.dcMotor.get("outake2");
 
         leadscrew = HWMap.dcMotor.get("leadscrew");
 
         intakeL = HWMap.crservo.get("intakeL");
         intakeR = HWMap.crservo.get("intakeR");
 
-        outake1 = HWMap.dcMotor.get("outake1") ;
-     //   outake2 = HWMap.dcMotor.get("outake2");
+
 
 
     }
@@ -118,10 +117,7 @@ public class HardwareUltimateGoal {
        intakeR.setPower(-power);
    }
 
-   public void Slingshot (double power) {
-        outake1.setPower(power);
-       // outake2.setPower(power);
-   }
+
 
 
 
