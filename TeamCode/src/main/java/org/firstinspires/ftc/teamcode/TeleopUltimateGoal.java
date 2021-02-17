@@ -85,19 +85,29 @@ public class TeleopUltimateGoal extends LinearOpMode {
                 Gerty.leadscrew.setPower(0);
             }
 
-            Gerty.Intake(gamepad1.left_trigger);
+            Gerty.Grabber.setPower(gamepad1.left_trigger);
 
             //Outake System//
 
             Gerty.outake1.setPower(gamepad2.right_trigger);
 
+            Gerty.outake2.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
             Gerty.outake2.setPower(gamepad2.left_stick_y);
 
             if (gamepad2.left_bumper) {
-                Gerty.outake2.setPower(1);
+                Gerty.outake2.setPower(-1);
             }
             else {
                 Gerty.outake2.setPower(0);
+            }
+
+            if (gamepad2.right_bumper) {
+                Gerty.outake1.setPower(1);
+                Gerty.outake2.setPower(-1);
+            }
+            else {
+                Gerty.outake2.setPower(0);
+                Gerty.outake1.setPower(0);
             }
 
 

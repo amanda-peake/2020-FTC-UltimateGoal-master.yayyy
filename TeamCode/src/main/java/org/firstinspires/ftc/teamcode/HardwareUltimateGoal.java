@@ -1,6 +1,5 @@
 package org.firstinspires.ftc.teamcode;
 
-import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
@@ -23,8 +22,10 @@ public class HardwareUltimateGoal {
     public DcMotor leadscrew;
 
     //intake pool noodle
-    public CRServo intakeL;
-    public CRServo intakeR;
+   // public CRServo intakeL;
+   // public CRServo intakeR;
+
+    public DcMotor Grabber;
 
 
     int driveTime;
@@ -47,8 +48,7 @@ public class HardwareUltimateGoal {
 
         leadscrew = HWMap.dcMotor.get("leadscrew");
 
-        intakeL = HWMap.crservo.get("intakeL");
-        intakeR = HWMap.crservo.get("intakeR");
+        Grabber = HWMap.dcMotor.get("Grabber");
 
 
 
@@ -112,10 +112,12 @@ public class HardwareUltimateGoal {
 
 
 
-   public void Intake (double power) {
+ /*  public void Intake (double power) {
        intakeL.setPower(power);
        intakeR.setPower(-power);
    }
+
+  */
 
 
 
@@ -144,7 +146,19 @@ public class HardwareUltimateGoal {
 
         leadscrew.setPower(0);
     }
+
+    public void Launch (double power, long totalSeconds) throws InterruptedException {
+
+        outake2.setPower(power);
+        outake1.setPower(power);
+
+        Thread.sleep(totalSeconds);
+
+        outake1.setPower(0);
+        outake2.setPower(0);
+    }
 }
+
  /*  public void Leadscrew (double power, int encoder, int Direction) {
 
         leadscrew.setTargetPosition(encoder * Direction);

@@ -25,17 +25,17 @@ public class AutoRed7 extends LinearOpMode {
         telemetry.update();
 
         waitForStart();
-        Gerty.DriveStraight(1,3000,1);
+        Gerty.DriveStraight(.75,2500,1);
         Thread.sleep(1000);
 
         //strafe right
         Gerty.DriveSideways(.5,1000,1);
         Thread.sleep(1000);
 
-        Gerty.DriveStraight(1,5000,1);
+        Gerty.DriveStraight(.75,5000,1);
         Thread.sleep(5000);
 
-        Gerty.DriveStraight(1,4000,-1);
+        Gerty.DriveStraight(.75,3000,-1);
         Thread.sleep(2000);
     }
 }

@@ -1,18 +1,19 @@
-package org.firstinspires.ftc.teamcode.Autonomous;
+package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
-import org.firstinspires.ftc.teamcode.HardwareUltimateGoal;
+@Autonomous (name = "AutoLaunch2")
 
-//left wobble second square
-@Autonomous (name = "AutoRed6")
+//driving forward, launching ring into goal, delivering wobble goal to third square, then parking
 
-public class AutoRed6 extends LinearOpMode {
+public class AutoLaunch2 extends LinearOpMode {
+
     HardwareUltimateGoal Gerty = new HardwareUltimateGoal();
 
     @Override
     public void runOpMode() throws InterruptedException {
+
         System.out.println("Starting up");
         telemetry.addData("init pressed", "about to initialize");
         telemetry.update();
@@ -30,11 +31,16 @@ public class AutoRed6 extends LinearOpMode {
         Gerty.DriveStraight(.75,3000,1);
         Thread.sleep(1000);
 
-//strafe right
-        Gerty.DriveSideways(.5,3000,1);
-        Thread.sleep(3000);
+        Gerty.Launch(1,3000);
+        Thread.sleep(1000);
 
-        Gerty.DriveStraight(.5,3000,1);
+        Gerty.DriveTurn(.5,500,1);
+        Thread.sleep(1000);
+
+        Gerty.DriveStraight(.5,1000,1);
+        Thread.sleep(1000);
+
+        Gerty.DriveTurn(.5,750,-1);
         Thread.sleep(1000);
 
         Gerty.DriveStraight(.5,1000,-1);
@@ -42,3 +48,4 @@ public class AutoRed6 extends LinearOpMode {
 
     }
 }
+
