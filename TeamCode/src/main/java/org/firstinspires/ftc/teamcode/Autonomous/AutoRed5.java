@@ -27,16 +27,16 @@ public class AutoRed5 extends LinearOpMode {
    //     Gerty.DriveSideways(.5,500,1);
         //Thread.sleep(1000);
 
-        Gerty.DriveStraight(.5,2000,1);
+        Gerty.DriveStraight(.5,2000,-1);
         Thread.sleep(5000);
 
         Gerty.DriveTurn(.5,400,-1);
 
-        Gerty.DriveStraight(.5,2000,1);
+        Gerty.DriveStraight(.5,2000,-1);
         Thread.sleep(5000);
 
 
-        Gerty.DriveStraight(.5,1000,-1);
+        Gerty.DriveStraight(.5,1000,1);
         Thread.sleep(2000);
 
 

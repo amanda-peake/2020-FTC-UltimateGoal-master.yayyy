@@ -25,7 +25,6 @@ public class TeleopUltimateGoal extends LinearOpMode {
 
         telemetry.addData("Status", "Ready!");
 
-
         telemetry.update();
 
         waitForStart();
@@ -35,6 +34,10 @@ public class TeleopUltimateGoal extends LinearOpMode {
             double fwdBack = gamepad1.left_stick_y;
             double strafe = -gamepad1.left_stick_x;
             double turn = gamepad1.right_stick_x;
+
+            //start intake movement
+            Gerty.Grabber.setPower(1);
+
 
 
 

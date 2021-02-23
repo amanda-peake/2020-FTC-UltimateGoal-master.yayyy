@@ -11,8 +11,6 @@ public class HardwareUltimateGoal {
     public DcMotor rightFront;
     public DcMotor rightBack;
 
-
-
     //outtake slingshot thingy
    public DcMotor outake1;
    public DcMotor outake2;
@@ -27,9 +25,7 @@ public class HardwareUltimateGoal {
 
     public DcMotor Grabber;
 
-
     int driveTime;
-
 
     //-------------------------------------Initialization----------------------
 
@@ -43,14 +39,12 @@ public class HardwareUltimateGoal {
         rightFront = HWMap.dcMotor.get("rightFront");
         rightBack = HWMap.dcMotor.get("rightBack");
 
-       outake1 = HWMap.dcMotor.get("outake1");
+        outake1 = HWMap.dcMotor.get("outake1");
         outake2 = HWMap.dcMotor.get("outake2");
 
         leadscrew = HWMap.dcMotor.get("leadscrew");
 
         Grabber = HWMap.dcMotor.get("Grabber");
-
-
 
 
     }
@@ -82,7 +76,6 @@ public class HardwareUltimateGoal {
         rightBack.setPower(power * -Direction);
 
         Thread.sleep(totalSeconds);
-
 
         // stops all motion
 

@@ -25,7 +25,7 @@ public class AutoRed7 extends LinearOpMode {
         telemetry.update();
 
         waitForStart();
-        Gerty.DriveStraight(.75,2500,1);
+        Gerty.DriveStraight(.75,2500,-1);
         Thread.sleep(1000);
 
         //strafe right

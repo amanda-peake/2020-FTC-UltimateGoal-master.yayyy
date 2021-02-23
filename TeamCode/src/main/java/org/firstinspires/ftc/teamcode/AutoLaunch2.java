@@ -28,22 +28,29 @@ public class AutoLaunch2 extends LinearOpMode {
 
         waitForStart();
 
-        Gerty.DriveStraight(.75,3000,1);
+
+        Gerty.DriveStraight(.50,3000,-1);
+        Thread.sleep(2000);
+
+        Gerty.outake2.setPower(1);
+
+        Gerty.Launch(1,4000);
         Thread.sleep(1000);
 
-        Gerty.Launch(1,3000);
+        Gerty.DriveTurn(.5,700,1);
         Thread.sleep(1000);
 
-        Gerty.DriveTurn(.5,500,1);
+        Gerty.DriveStraight(.5,500,-1);
         Thread.sleep(1000);
+
+        Gerty.DriveTurn(.5,700,-1);
+        Thread.sleep(1000);
+
+        Gerty.DriveStraight(.5,800,-1);
+        Thread.sleep(1000);
+
 
         Gerty.DriveStraight(.5,1000,1);
-        Thread.sleep(1000);
-
-        Gerty.DriveTurn(.5,750,-1);
-        Thread.sleep(1000);
-
-        Gerty.DriveStraight(.5,1000,-1);
         Thread.sleep(1000);
 
     }

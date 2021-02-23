@@ -27,7 +27,7 @@ public class AutoRed6 extends LinearOpMode {
 
         waitForStart();
 
-        Gerty.DriveStraight(.75,3000,1);
+        Gerty.DriveStraight(.75,3000,-1);
         Thread.sleep(1000);
 
 //strafe right
