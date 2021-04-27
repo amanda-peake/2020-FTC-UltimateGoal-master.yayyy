@@ -4,7 +4,9 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 
-//delivers right wobble to third sqaure, launches rings, parks
+//delivers right wobble to third square, launches rings, parks
+//tested and works!!
+
 @Autonomous (name = "WobbleLaunch3")
 public class AutoWobbleLaunch3  extends LinearOpMode {
 
@@ -26,14 +28,14 @@ public class AutoWobbleLaunch3  extends LinearOpMode {
         waitForStart();
 
         //Drives to third sqaure
-        Gerty.DriveStraight(.5,5700,-1);
+        Gerty.DriveStraight(.5,4000,-1);
         Thread.sleep(1000);
         //Backs up to leave wobble
-        Gerty.DriveStraight(.5,2000,1);
+        Gerty.DriveStraight(.5,1000,1);
         Thread.sleep(1000);
 
         //strafes to line up with scorey thing
-        Gerty.DriveSideways(.5,3000,-1);
+        Gerty.DriveSideways(.5,1000,1);
         Thread.sleep(1000);
 
         //launches ring(s)
@@ -41,11 +43,6 @@ public class AutoWobbleLaunch3  extends LinearOpMode {
 
         Gerty.Launch(1,4000);
         Thread.sleep(1000);
-
-        //Parks
-        Gerty.DriveStraight(.5,750,1);
-
-
 
     }
 }
