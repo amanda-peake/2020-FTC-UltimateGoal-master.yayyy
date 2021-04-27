@@ -12,6 +12,9 @@ public class HardwarePractice {
     public Servo Twirly;
     public CRServo Megatwirly;
 
+    public DcMotor Motoroid;
+
+
 
      public void Initilization{
 
